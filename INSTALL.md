@@ -16,8 +16,14 @@ $ npm install prisma typescript ts-node @types/node --save-dev
 $ npx tsc --init
 ```
 
-## init prisma
+## init prisma - by default is postgresql
 
 ```sh
 $ npx prisma init
+```
+
+## Run migrate with name init ( askf for name without --name )
+
+```sh
+$ npx prisma migrate dev --name init
 ```
