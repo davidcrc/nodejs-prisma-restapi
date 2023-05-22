@@ -43,3 +43,9 @@ $ npm i @types/express -D
 ```sh
 $ npm install --save-dev ts-node nodemon
 ```
+
+### ----------------------------------------------------------------
+
+## Add Faker
+
+npm install @faker-js/faker --save-dev
