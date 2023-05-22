@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { ProductModel } from "../models/product.model";
 import { statusCodes } from "../utils/status-codes";
 import { CreateProductRequest } from "../types/productTypes";
+import { handleErrors } from "../errors/HandleErrors";
 
 const createProduct = async (req: CreateProductRequest, res: Response) => {
   try {
@@ -23,11 +24,8 @@ const createProduct = async (req: CreateProductRequest, res: Response) => {
 
     return res.status(statusCodes.success.CREATED).json(product);
   } catch (error) {
-    console.error(error);
-
-    return res
-      .status(statusCodes.serverErrors.INTERNAL_SERVER_ERROR)
-      .json({ error: "Error create product" });
+    // TODO: check this for the others functions
+    return handleErrors(res, error);
   }
 };
 
