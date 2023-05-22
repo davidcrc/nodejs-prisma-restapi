@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { ProductModel } from "../models/product.model";
 import { statusCodes } from "../utils/status-codes";
-import { CreateUserRequest } from "../types/productTypes";
+import { CreateProductRequest } from "../types/productTypes";
 
-const createProduct = async (req: CreateUserRequest, res: Response) => {
+const createProduct = async (req: CreateProductRequest, res: Response) => {
   try {
     // TODO: update with UUID
     const { name, price, stock, categoryId } = req.body;
@@ -27,7 +27,7 @@ const createProduct = async (req: CreateUserRequest, res: Response) => {
 
     return res
       .status(statusCodes.serverErrors.INTERNAL_SERVER_ERROR)
-      .json({ error: "Error get category" });
+      .json({ error: "Error create product" });
   }
 };
 

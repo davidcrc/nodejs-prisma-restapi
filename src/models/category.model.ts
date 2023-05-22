@@ -1,4 +1,12 @@
 import { prismaConn } from "../prismaConnection";
+import {
+  CreateCategoryInput,
+  UpdateCategoryInput,
+} from "./types/categoryTypes";
+
+const createCategory = async (data: CreateCategoryInput) => {
+  return prismaConn.category.create({ data });
+};
 
 const getCategoryById = async (id: number) => {
   return prismaConn.category.findFirst({
@@ -24,7 +32,20 @@ const getCategories = async () => {
   });
 };
 
+const updateCategoryById = async (id: number, data: UpdateCategoryInput) => {
+  return prismaConn.category.update({ where: { id }, data });
+};
+
+const deleteCategory = async (id: number) => {
+  return prismaConn.category.delete({
+    where: { id },
+  });
+};
+
 export const CategoryModel = {
+  createCategory,
   getCategoryById,
   getCategories,
+  updateCategoryById,
+  deleteCategory,
 };
