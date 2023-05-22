@@ -27,3 +27,19 @@ $ npx prisma init
 ```sh
 $ npx prisma migrate dev --name init
 ```
+
+### ----------------------------------------------------------------
+
+## add express
+
+```sh
+$ npm i express
+```
+
+```sh
+$ npm i @types/express -D
+```
+
+```sh
+$ npm install --save-dev ts-node nodemon
+```
