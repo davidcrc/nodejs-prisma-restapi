@@ -1,13 +1,17 @@
 import { Router } from "express";
-import { prismaConn } from "../prismaConnection";
+import { ProductController } from "../controllers/product.controller";
 
 const router = Router();
 
 // add endpoints
-router.get("/products", async (req, res) => {
-  const products = await prismaConn.product.findMany();
+router.post("/products", ProductController.createProduct);
 
-  res.json(products);
-});
+router.get("/product/:id", ProductController.getProduct);
+
+router.get("/products", ProductController.getProducts);
+
+router.delete("/product/:id", ProductController.deleteProduct);
+
+router.put("/product/:id", ProductController.updateProduct);
 
 export default router;

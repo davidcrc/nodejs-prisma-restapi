@@ -1,13 +1,11 @@
 import { Router } from "express";
-import { prismaConn } from "../prismaConnection";
+import { CategoryController } from "../controllers/category.controller";
 
 const router = Router();
 
 // add endpoints
-router.get("/categories", async (req, res) => {
-  const categories = await prismaConn.category.findMany();
+router.get("/category/:id", CategoryController.getCategory);
 
-  res.json(categories);
-});
+router.get("/categories", CategoryController.getCategories);
 
 export default router;
